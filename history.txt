@@ -1,0 +1,67 @@
+------------------------------------EJS------------------------------------
+
+<!-- This is applied on which you want to repeatedly apply -->
+<!-- <% project.forEach((ele)=>{%>               (#HTML_CODE_HERE)                       <%}); %> -->
+
+
+<!-- This is for adding the attribute -->
+<!-- <%=ele.attribute_name_from_table%> -->
+
+<!-- For eg: -->
+
+        <!-- <% project.forEach((ele)=>{%> 
+        <h1><%=ele.u_name%></h1>
+<%});%> -->
+
+
+
+
+
+-------------------------------ABOUT SLASH ENDPOINTS-----------------------------
+
+slash  --------------------------> This will get appended to the url
+
+/slash --------------------------> This will become new url (whatever the previous url get replaced by this)
+
+slash/ --------------------------> Will get appended and This will accept upcoming routes 
+
+/slash/ -------------------------> This will become new route , and also it will be accepting next endpoints, generally used in app.js (see)
+
+
+
+
+
+--------------------------------req.params.attribute vs req.body.attribute-------------
+
+when action is get ----------> req.params.attribute    ------------> the parameters are visible in url(unsafe) (it goes as in param)  eg : localhost:5000/user/search?search=sim . You should use param only if it is available in url 
+when action is post ---------> req.body.attribute    ------------> the parameters are not visible in url  (Because it goes as body)
+
+
+
+
+
+-------------------------------------SEARCHING TIP----------------------------------
+use post method , in some cases get wont work properly (handling with form)
+
+
+
+
+
+-------------------------------------async<>await---------------------------------
+wherever you are dealing with databse you have to use async-await
+
+
+
+
+
+-------------------------------------how to send req.body.attribute or req.param.attribute to sql query-------------------------------
+syntax :   let query = `SELECT * FROM table1s WHERE u_name LIKE "%${req.body.search}%"`
+
+
+
+
+
+-------------------------------------POST vs PUT vs PATCH-----------------------------------------------------------------------------
+POST  ->   is always for creating a resource ( does not matter if it was duplicated )
+PUT   ->   is for checking if resource exists then update, else create new resource
+PATCH ->   is always for updating a resource
